@@ -1,0 +1,39 @@
+/* Warna background seluruh halaman */
+body {
+    background-color: #3a4652; /* biru tua */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling untuk judul */
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #8f6665;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: rgb(221, 153, 153);
+}
+
+/* Konten */
+.content {
+    padding: 20px;
+    color: white;
+}
