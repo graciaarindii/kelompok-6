@@ -1,6 +1,6 @@
 /* Warna background seluruh halaman */
 body {
-    background-color: #3a4652; /* biru tua */
+    background-color: #a88290; /* biru tua */
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -39,4 +39,7 @@ h1 {
 }
 li {display: inline-block;
 padding: 12px;
+margin: 10px;}
+
+ul {background-color: #e9e9e9;}
 margin: 10px;}
