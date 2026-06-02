@@ -1,15 +1,233 @@
 <!DOCTYPE html>
- <html>
-    <head> 
-        <link rel="stylesheet" href= styles.css>
-    </head>
-    <body>
-        <h1> Product </h1>
-        <ul>
-            <li><a href="index.html"> Home </a></li>
-            <li><a href="design.html"> Design process </a></li>
-            <li>Product</li>
-        </ul>
+<html>
+<head>
+    <title>Product - Piggy Bank</title>
 
-    </body>
- </html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+            color: #d95d8a;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline;
+            margin: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ff6fa1;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #ff6fa1;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.8);
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255,182,193,0.4);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 8px;
+            border: 2px solid #ffc2d1;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff8fb1;
+            color: white;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #ffd6e7;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #progressFill {
+            width: 0%;
+            height: 100%;
+            background: #ff8fb1;
+        }
+
+        .pig {
+            font-size: 80px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Product</h1>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design.html">Design Process</a></li>
+        <li>Product</li>
+    </ul>
+
+    <div class="pig">🐷</div>
+
+    <h1>Piggy Bank</h1>
+    <p>Save today, smile tomorrow 💕</p>
+
+    <div class="card">
+        <h2>🎯 Target Tabungan</h2>
+
+        <input type="number" id="targetInput"
+        placeholder="Masukkan target tabungan">
+
+        <br>
+
+        <button onclick="setTarget()">
+            Simpan Target
+        </button>
+
+        <p>
+            Target:
+            Rp <span id="target">0</span>
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💰 Total Tabungan</h2>
+
+        <p>
+            Rp <span id="total">0</span>
+        </p>
+
+        <input type="number"
+        id="inputTabungan"
+        placeholder="Masukkan tabungan">
+
+        <br>
+
+        <button onclick="tambahTabungan()">
+            Tambah Tabungan
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>🌸 Progress Target</h2>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <p id="progressText">0%</p>
+    </div>
+
+    <div class="card">
+        <h2>📖 Riwayat Tabungan</h2>
+        <ul id="riwayat"></ul>
+    </div>
+
+<script>
+
+let total = 0;
+let target = 0;
+
+function setTarget() {
+
+    target = parseInt(
+        document.getElementById("targetInput").value
+    );
+
+    if(!target || target <= 0){
+        alert("Masukkan target yang benar!");
+        return;
+    }
+
+    document.getElementById("target").innerText =
+        target.toLocaleString("id-ID");
+
+    updateProgress();
+}
+
+function tambahTabungan(){
+
+    let jumlah = parseInt(
+        document.getElementById("inputTabungan").value
+    );
+
+    if(!jumlah || jumlah <= 0){
+        alert("Masukkan jumlah yang benar!");
+        return;
+    }
+
+    total += jumlah;
+
+    document.getElementById("total").innerText =
+        total.toLocaleString("id-ID");
+
+    let tanggal =
+        new Date().toLocaleDateString("id-ID");
+
+    let li = document.createElement("li");
+
+    li.innerHTML =
+        tanggal +
+        " : +Rp" +
+        jumlah.toLocaleString("id-ID");
+
+    document.getElementById("riwayat")
+        .prepend(li);
+
+    document.getElementById("inputTabungan")
+        .value = "";
+
+    updateProgress();
+}
+
+function updateProgress(){
+
+    let progress = 0;
+
+    if(target > 0){
+
+        progress =
+        (total/target)*100;
+
+        if(progress > 100){
+            progress = 100;
+        }
+    }
+
+    document.getElementById("progressFill")
+        .style.width = progress + "%";
+
+    document.getElementById("progressText")
+        .innerText =
+        Math.floor(progress) +
+        "% tercapai";
+}
+
+</script>
+
+</body>
+</html>
