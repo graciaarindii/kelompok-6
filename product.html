@@ -1,230 +1,252 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product - Smart Grade Calculator</title>
+    <title>Product - Piggy Bank</title>
 
     <style>
-
-        body{
+        body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg,#dbeafe,#eff6ff);
-            color:#1e40af;
-            text-align:center;
-            margin:0;
-            padding:20px;
+            background: linear-gradient(
+                135deg,
+                #FFE5EC,
+                #FFF0F5,
+                #FFD6E7
+            );
+            color: #C95D8A;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
         }
 
-        ul{
-            list-style:none;
-            padding:0;
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        ul li{
-            display:inline;
-            margin:15px;
+        ul li {
+            display: inline;
+            margin: 15px;
         }
 
-        a{
-            text-decoration:none;
-            color:#2563eb;
-            font-weight:bold;
+        a {
+            text-decoration: none;
+            color: #FF6F91;
+            font-weight: bold;
         }
 
-        h1{
-            color:#2563eb;
+        h1 {
+            color: #FF6F91;
         }
 
-        .card{
-            background:white;
-            width:80%;
-            max-width:500px;
-            margin:20px auto;
-            padding:20px;
-            border-radius:20px;
-            box-shadow:0 4px 15px rgba(59,130,246,0.2);
+        .card {
+            background: #FFF8FB;
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
         }
 
-        input{
-            width:80%;
-            padding:10px;
-            margin:8px;
-            border:2px solid #bfdbfe;
-            border-radius:10px;
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 8px;
+            border: 2px solid #FFC2D1;
+            border-radius: 10px;
         }
 
-        button{
-            padding:10px 20px;
-            border:none;
-            border-radius:10px;
-            background:#2563eb;
-            color:white;
-            cursor:pointer;
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #FF8FAB;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        button:hover{
-            background:#1d4ed8;
+        button:hover {
+            background: #FF6F91;
         }
 
-        .logo{
-            font-size:80px;
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #FFD6E7;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        .hasil{
-            font-size:20px;
-            margin-top:10px;
+        #progressFill {
+            width: 0%;
+            height: 100%;
+            background: #FF8FAB;
         }
 
+        .pig {
+            font-size: 80px;
+        }
     </style>
 
 </head>
 
 <body>
 
-<h1>Product</h1>
+    <h1>Product</h1>
 
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="design.html">Design Process</a></li>
-    <li>Product</li>
-</ul>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design.html">Design Process</a></li>
+        <li>Product</li>
+    </ul>
 
-<div class="logo">🎓</div>
+    <div class="pig">🐷</div>
 
-<h1>Smart Grade Calculator</h1>
+    <h1>Piggy Bank</h1>
 
-<p>Calculate your grades easily 📚</p>
+    <p>Save today, smile tomorrow 💕</p>
 
-<p>
-<a href="https://colab.research.google.com/drive/1PThQitLQ6JWF3hUXRXT9u8iOvypiTXXl?usp=sharing" target="_blank">
-<button>
-🐍 Lihat Source Code Python
-</button>
-</a>
-</p>
-
-<div class="card">
-
-    <h2>📝 Input Nilai</h2>
-
-    <input
-    type="number"
-    id="tugas"
-    placeholder="Masukkan Nilai Tugas">
-
-    <br>
-
-    <input
-    type="number"
-    id="ulangan"
-    placeholder="Masukkan Nilai Ulangan Harian">
-
-    <br>
-
-    <input
-    type="number"
-    id="ujian"
-    placeholder="Masukkan Nilai Ujian Akhir">
-
-    <br><br>
-
-    <button onclick="hitungNilai()">
-        Hitung Nilai
-    </button>
-
-</div>
-
-<div class="card">
-
-    <h2>📊 Hasil</h2>
-
-    <p class="hasil">
-        Nilai Akhir:
-        <span id="nilai">0</span>
+    <https://colab.research.google.com/drive/132EFFeYJw2yxgegNaWyRlG_63XYEdZ4x?usp=sharing-->
+    <p>
+        <a href="https://colab.research.google.com/drive/132EFFeYJw2yxgegNaWyRlG_63XYEdZ4x?usp=sharing" target="_blank">
+            <button>
+                🐍 Lihat Source Code Python
+            </button>
+        </a>
     </p>
 
-    <p class="hasil">
-        Grade:
-        <span id="grade">-</span>
-    </p>
+    <div class="card">
+        <h2>🎯 Target Tabungan</h2>
 
-    <p class="hasil">
-        Status:
-        <span id="status">-</span>
-    </p>
+        <input
+            type="number"
+            id="targetInput"
+            placeholder="Masukkan target tabungan">
 
-</div>
+        <br>
+
+        <button onclick="setTarget()">
+            Simpan Target
+        </button>
+
+        <p>
+            Target:
+            Rp <span id="target">0</span>
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💰 Total Tabungan</h2>
+
+        <p>
+            Rp <span id="total">0</span>
+        </p>
+
+        <input
+            type="number"
+            id="inputTabungan"
+            placeholder="Masukkan tabungan">
+
+        <br>
+
+        <button onclick="tambahTabungan()">
+            Tambah Tabungan
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>🌸 Progress Target</h2>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <p id="progressText">0%</p>
+    </div>
+
+    <div class="card">
+        <h2>📖 Riwayat Tabungan</h2>
+        <ul id="riwayat"></ul>
+    </div>
 
 <script>
 
-function hitungNilai(){
+let total = 0;
+let target = 0;
 
-    let tugas =
-    parseFloat(
-    document.getElementById("tugas").value
+function setTarget() {
+
+    target = parseInt(
+        document.getElementById("targetInput").value
     );
 
-    let ulangan =
-    parseFloat(
-    document.getElementById("ulangan").value
-    );
-
-    let ujian =
-    parseFloat(
-    document.getElementById("ujian").value
-    );
-
-    if(
-        isNaN(tugas) ||
-        isNaN(ulangan) ||
-        isNaN(ujian)
-    ){
-        alert("Isi semua nilai terlebih dahulu!");
+    if (!target || target <= 0) {
+        alert("Masukkan target yang benar!");
         return;
     }
 
-    let nilai =
-    (0.3 * tugas) +
-    (0.3 * ulangan) +
-    (0.4 * ujian);
+    document.getElementById("target").innerText =
+        target.toLocaleString("id-ID");
 
-    let grade;
+    updateProgress();
+}
 
-    if(nilai > 90){
-        grade = "A";
-    }
-    else if(nilai > 75){
-        grade = "B";
-    }
-    else if(nilai > 60){
-        grade = "C";
-    }
-    else if(nilai > 50){
-        grade = "D";
-    }
-    else{
-        grade = "E";
+function tambahTabungan() {
+
+    let jumlah = parseInt(
+        document.getElementById("inputTabungan").value
+    );
+
+    if (!jumlah || jumlah <= 0) {
+        alert("Masukkan jumlah yang benar!");
+        return;
     }
 
-    let status;
+    total += jumlah;
 
-    if(nilai > 75){
-        status = "LULUS 🎉";
+    document.getElementById("total").innerText =
+        total.toLocaleString("id-ID");
+
+    let tanggal =
+        new Date().toLocaleDateString("id-ID");
+
+    let li = document.createElement("li");
+
+    li.innerHTML =
+        tanggal +
+        " : +Rp" +
+        jumlah.toLocaleString("id-ID");
+
+    document.getElementById("riwayat")
+        .prepend(li);
+
+    document.getElementById("inputTabungan").value = "";
+
+    updateProgress();
+}
+
+function updateProgress() {
+
+    let progress = 0;
+
+    if (target > 0) {
+
+        progress =
+        (total / target) * 100;
+
+        if (progress > 100) {
+            progress = 100;
+        }
     }
-    else{
-        status = "REMEDIAL 📚";
-    }
 
-    document.getElementById("nilai")
-    .innerText =
-    nilai.toFixed(2);
+    document.getElementById("progressFill")
+        .style.width = progress + "%";
 
-    document.getElementById("grade")
-    .innerText =
-    grade;
-
-    document.getElementById("status")
-    .innerText =
-    status;
+    document.getElementById("progressText")
+        .innerText =
+        Math.floor(progress) +
+        "% tercapai";
 }
 
 </script>
